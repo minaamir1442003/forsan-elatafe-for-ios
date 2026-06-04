@@ -70,7 +70,7 @@ class _MedicalUnitPageState extends State<MedicalUnitPage>
                   TaskTimelineWidget(),
                   SizedBox(height: 20),
                   VisionSection(),
-                SizedBox(height: 75.h),
+                SizedBox(height: 110),
                 ],
               ),
             ),

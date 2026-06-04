@@ -235,7 +235,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.r),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: 12.h),
+                              padding: EdgeInsets.symmetric(vertical: 20),
                             ),
                             child: Text(
                               "إنشاء حساب جديد",
@@ -248,7 +248,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
 
-                        SizedBox(height: 35.w),
+                        SizedBox(height: 150.h),
                       ],
                     ),
                   ),

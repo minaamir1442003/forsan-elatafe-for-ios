@@ -85,7 +85,7 @@ class _ResortPageState extends State<ResortPage>
                   const TaskTimelineWidget(),
                   SizedBox(height: 20,),
                   ResortVisionSection(),
-                SizedBox(height: 75.h),
+                SizedBox(height: 110),
                 ],
               ),
             ),

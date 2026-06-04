@@ -245,9 +245,9 @@ class _TherapeuticProgramsState extends State<TherapeuticPrograms> {
                             ),
                           ],
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 6),
                         Container(
-                          padding: EdgeInsets.all(14),
+                          padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: selected
