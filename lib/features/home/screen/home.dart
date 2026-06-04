@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:forsan_eltafe/core/AnimatedEgyptFlag%20.dart';
 import 'package:forsan_eltafe/core/appcolors.dart';
 import 'package:forsan_eltafe/features/home/widget/Conectus.dart';
 import 'package:forsan_eltafe/features/home/widget/aboutelmontage.dart';
@@ -31,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 const SizedBox(height: 10),
-              
+
                 SizedBox(height: 10),
                 image_and_service(),
                 SizedBox(height: 15),
@@ -57,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 TherapeuticPrograms(),
                 SizedBox(height: 15),
                 Conectus(),
-                SizedBox(height: 75.h),
+                SizedBox(height: 110),
               ],
             ),
           ),
