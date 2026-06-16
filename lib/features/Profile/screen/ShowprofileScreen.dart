@@ -78,7 +78,6 @@ class ShowprofileScreen extends StatelessWidget {
               ),
               leading: Container(
                 padding: const EdgeInsets.only(left: 1),
-
                 child: Animatedegyptflagglass(),
               ),
               centerTitle: true,
@@ -145,7 +144,6 @@ class ShowprofileScreen extends StatelessWidget {
                 }
 
                 if (state is HomeSuccess) {
-                  // --- فلترة السجلات حسب الرتبة ---
                   return _FilteredRecordsView(
                     token: token,
                     allRecords: state.records,
@@ -254,8 +252,8 @@ class _FilteredRecordsView extends StatefulWidget {
 }
 
 class _FilteredRecordsViewState extends State<_FilteredRecordsView> {
-  String _selectedRole =
-      'all'; // 'all', 'doctor', 'specialist', 'supervisor', 'nurse'
+  String _selectedRole = 'all';
+  bool _isLoggingOut = false; // ✅ متغير حالة تسجيل الخروج
 
   // الحصول على قائمة فريدة من الرتب الموجودة فعلاً في السجلات
   List<String> get _availableRoles {
@@ -280,6 +278,43 @@ class _FilteredRecordsViewState extends State<_FilteredRecordsView> {
       final role = createdBy?['role'] as String?;
       return role == _selectedRole;
     }).toList();
+  }
+
+  // ✅ دالة تسجيل الخروج مع حالة التحميل
+  Future<void> _logout(BuildContext context) async {
+    if (_isLoggingOut) return; // منع الضغط المتكرر
+
+    setState(() {
+      _isLoggingOut = true;
+    });
+
+    final cubit = context.read<HomeCubit>();
+    final success = await cubit.logout(widget.token);
+
+    setState(() {
+      _isLoggingOut = false;
+    });
+
+    if (context.mounted) {
+      if (success) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const CustomBottomNavigationBar(initialIndex: 3),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('تم تسجيل الخروج بنجاح'),
+            backgroundColor: Colors.green,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const ProfilePage()),
+        );
+      }
+    }
   }
 
   @override
@@ -398,6 +433,96 @@ class _FilteredRecordsViewState extends State<_FilteredRecordsView> {
                   .map((record) => RecordCard(record: record))
                   .toList(),
 
+            // ========== ✅ زر تسجيل الخروج مع تحميل ==========
+            const SizedBox(height: 30),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GestureDetector(
+                onTap: _isLoggingOut ? null : () => _logout(context),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  decoration: BoxDecoration(
+                    gradient: _isLoggingOut
+                        ? LinearGradient(
+                            colors: [
+                              Colors.grey.shade400,
+                              Colors.grey.shade300,
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          )
+                        : LinearGradient(
+                            colors: [
+                              Colors.red.withOpacity(0.15),
+                              Colors.red.withOpacity(0.05),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: _isLoggingOut
+                          ? Colors.grey.shade400
+                          : Colors.red.withOpacity(0.5),
+                      width: 1.5,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: _isLoggingOut
+                            ? Colors.grey.withOpacity(0.1)
+                            : Colors.red.withOpacity(0.1),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (_isLoggingOut) ...[
+                        SizedBox(
+                          width: 24.sp,
+                          height: 24.sp,
+                          child: const CircularProgressIndicator(
+                            strokeWidth: 2.5,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          'جاري تسجيل الخروج...',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.grey.shade600,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ] else ...[
+                        Icon(
+                          Icons.logout_rounded,
+                          color: Colors.red,
+                          size: 24.sp,
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          'تسجيل الخروج',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.red,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            
             const SizedBox(height: 40),
           ],
         ),

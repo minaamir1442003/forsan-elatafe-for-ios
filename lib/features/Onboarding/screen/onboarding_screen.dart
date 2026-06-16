@@ -26,6 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       "desc": "نخبة من أفضل الأطباء النفسيين والمعالجين\nلدعم رحلتك نحو التعافي باحترافية.",
     },
     {
+      
       "image": "assets/montaga/montaga19.jpeg",
       "title": "إقامة فندقية فاخرة",
       "desc": "بيئة هادئة ومريحة تساعد على الاستقرار النفسي\nوتسريع عملية الشفاء.",
