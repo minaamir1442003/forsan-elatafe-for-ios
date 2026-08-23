@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> {
     double horizontalPadding = screenWidth > 500 ? 30 : 20;
     return Scaffold(
       backgroundColor: Appcolors.greycolor,
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

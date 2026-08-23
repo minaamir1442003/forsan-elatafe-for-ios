@@ -22,20 +22,12 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       child: MultiBlocProvider(
-        providers: [
-          // أضف RequestCubit هنا عشان يكون متاح في كل التطبيق
-          BlocProvider(create: (context) => RequestCubit()),
-          // لو عندك Cubits تانية زودها هنا
-        ],
+        providers: [BlocProvider(create: (context) => RequestCubit())],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'فرسان التعافي',
-          theme: ThemeData(
-            fontFamily: 'Cairo',
-            useMaterial3: true,
-          ),
+          theme: ThemeData(fontFamily: 'Cairo', useMaterial3: true),
           home: const AppEntryPoint(),
-        
         ),
       ),
     );
@@ -48,7 +40,7 @@ class AppEntryPoint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasSeenOnboarding = SharedPreferencesHelper.getHasSeenOnboarding();
-    
+
     if (hasSeenOnboarding) {
       return const AnimatedSplashScreen();
     } else {

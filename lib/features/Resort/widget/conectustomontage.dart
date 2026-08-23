@@ -79,10 +79,7 @@ class Conectustomontage extends StatelessWidget {
             SizedBox(height: 4.h),
             Text(
               "إقامة فندقية فاخرة - دعم وإشراف متواصل",
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Appcolors.accentColor,
-              ),
+              style: TextStyle(fontSize: 12.sp, color: Appcolors.accentColor),
             ),
           ],
         ),
@@ -105,10 +102,7 @@ class Conectustomontage extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 10,
-          ),
+          BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 10),
         ],
       ),
       child: Column(
@@ -159,10 +153,7 @@ class Conectustomontage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-            ),
+            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10),
           ],
         ),
         child: Stack(
@@ -178,7 +169,11 @@ class Conectustomontage extends StatelessWidget {
                   return Container(
                     color: Colors.grey[200],
                     child: const Center(
-                      child: Icon(Icons.map_outlined, size: 50, color: Colors.grey),
+                      child: Icon(
+                        Icons.map_outlined,
+                        size: 50,
+                        color: Colors.grey,
+                      ),
                     ),
                   );
                 },
@@ -197,7 +192,10 @@ class Conectustomontage extends StatelessWidget {
                   SizedBox(width: 6.w),
                   Text(
                     "اضغط لفتح الموقع",
-                    style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -226,18 +224,31 @@ class Conectustomontage extends StatelessWidget {
           runSpacing: 12,
           alignment: WrapAlignment.center,
           children: [
-            _social(FontAwesomeIcons.facebook,
-                "https://www.facebook.com/RecoverykNightsResort/", Colors.blue),
-            _social(FontAwesomeIcons.instagram,
-                "https://www.instagram.com/recoveryknightsresortgiza/", Colors.purple),
-                _social(FontAwesomeIcons.tiktok,
-                "https://www.tiktok.com/@recoverynightsresort", Colors.black),
-                            _social(FontAwesomeIcons.youtube,
-                "https://www.youtube.com/@RecoverykNightsResort", Colors.red),
-            _social(FontAwesomeIcons.snapchat,
-                "https://www.snapchat.com/add/recoverynights", Colors.amber),
-            
-
+            _social(
+              FontAwesomeIcons.facebook,
+              "https://www.facebook.com/RecoverykNightsResort/",
+              Colors.blue,
+            ),
+            _social(
+              FontAwesomeIcons.instagram,
+              "https://www.instagram.com/recoveryknightsresortgiza/",
+              Colors.purple,
+            ),
+            _social(
+              FontAwesomeIcons.tiktok,
+              "https://www.tiktok.com/@recoverynightsresort",
+              Colors.black,
+            ),
+            _social(
+              FontAwesomeIcons.youtube,
+              "https://www.youtube.com/@RecoverykNightsResort",
+              Colors.red,
+            ),
+            _social(
+              FontAwesomeIcons.snapchat,
+              "https://www.snapchat.com/add/recoverynights",
+              Colors.amber,
+            ),
           ],
         ),
         SizedBox(height: 8),
@@ -262,9 +273,7 @@ class Conectustomontage extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [color, color.withOpacity(0.85)],
-          ),
+          gradient: LinearGradient(colors: [color, color.withOpacity(0.85)]),
           borderRadius: BorderRadius.circular(30.r),
         ),
         child: Row(
@@ -274,7 +283,10 @@ class Conectustomontage extends StatelessWidget {
             SizedBox(width: 6),
             Text(
               title,
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
@@ -283,7 +295,7 @@ class Conectustomontage extends StatelessWidget {
   }
 
   /// ================= SOCIAL ITEM =================
-  Widget _social(IconData icon, String url, Color color) {
+  Widget _social(dynamic icon, String url, Color color) {
     return GestureDetector(
       onTap: () => _openUrl(url),
       child: Container(
@@ -295,7 +307,7 @@ class Conectustomontage extends StatelessWidget {
             BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 8),
           ],
         ),
-        child: Icon(icon, color: color, size: 28.sp),
+        child: FaIcon(icon, color: color, size: 28.sp),
       ),
     );
   }

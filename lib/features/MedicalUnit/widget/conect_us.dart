@@ -38,7 +38,6 @@ class ConnectUs extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-
           /// ================= HEADER =================
           _buildHeader(),
 
@@ -80,10 +79,7 @@ class ConnectUs extends StatelessWidget {
             SizedBox(height: 4.h),
             Text(
               "الرد خلال 24 ساعة - دعم مستمر",
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Appcolors.accentColor,
-              ),
+              style: TextStyle(fontSize: 12.sp, color: Appcolors.accentColor),
             ),
           ],
         ),
@@ -106,15 +102,11 @@ class ConnectUs extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 10,
-          ),
+          BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 10),
         ],
       ),
       child: Column(
         children: [
-
           Text(
             phone,
             style: TextStyle(
@@ -163,16 +155,12 @@ class ConnectUs extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-            ),
+            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10),
           ],
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
-
             ClipRRect(
               borderRadius: BorderRadius.circular(20.r),
               child: Image.asset(
@@ -183,10 +171,7 @@ class ConnectUs extends StatelessWidget {
             ),
 
             Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.w,
-                vertical: 6.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(30.r),
@@ -194,8 +179,7 @@ class ConnectUs extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.location_on,
-                      color: Appcolors.accentColor),
+                  Icon(Icons.location_on, color: Appcolors.accentColor),
                   SizedBox(width: 6.w),
                   Text(
                     "اضغط لفتح الموقع",
@@ -217,7 +201,6 @@ class ConnectUs extends StatelessWidget {
   Widget _buildSocial() {
     return Column(
       children: [
-
         Text(
           "تابعنا على السوشيال ميديا",
           style: TextStyle(
@@ -234,20 +217,35 @@ class ConnectUs extends StatelessWidget {
           runSpacing: 12,
           alignment: WrapAlignment.center,
           children: [
-            _social(FontAwesomeIcons.facebook,
-                "https://www.facebook.com/recoveryknightsunits/", Colors.blue),
+            _social(
+              FontAwesomeIcons.facebook,
+              "https://www.facebook.com/recoveryknightsunits/",
+              Colors.blue,
+            ),
 
-            _social(FontAwesomeIcons.instagram,
-                "https://www.instagram.com/recoveryknightsunit/", Colors.purple),
+            _social(
+              FontAwesomeIcons.instagram,
+              "https://www.instagram.com/recoveryknightsunit/",
+              Colors.purple,
+            ),
 
-            _social(FontAwesomeIcons.tiktok,
-                "https://www.tiktok.com/@recoveryknightsunit", Colors.black),
+            _social(
+              FontAwesomeIcons.tiktok,
+              "https://www.tiktok.com/@recoveryknightsunit",
+              Colors.black,
+            ),
 
-            _social(FontAwesomeIcons.youtube,
-                "https://www.youtube.com/@recoveryknightsunit", Colors.red),
+            _social(
+              FontAwesomeIcons.youtube,
+              "https://www.youtube.com/@recoveryknightsunit",
+              Colors.red,
+            ),
 
-            _social(FontAwesomeIcons.snapchat,
-                "https://www.snapchat.com/add/recoveryknight", Colors.amber),
+            _social(
+              FontAwesomeIcons.snapchat,
+              "https://www.snapchat.com/add/recoveryknight",
+              Colors.amber,
+            ),
           ],
         ),
 
@@ -255,10 +253,7 @@ class ConnectUs extends StatelessWidget {
 
         Text(
           "اضغط على أي أيقونة للانتقال إلى الصفحة الرسمية",
-          style: TextStyle(
-            fontSize: 11.sp,
-            color: Colors.grey.shade500,
-          ),
+          style: TextStyle(fontSize: 11.sp, color: Colors.grey.shade500),
           textAlign: TextAlign.center,
         ),
       ],
@@ -277,9 +272,7 @@ class ConnectUs extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [color, color.withOpacity(0.85)],
-          ),
+          gradient: LinearGradient(colors: [color, color.withOpacity(0.85)]),
           borderRadius: BorderRadius.circular(30.r),
         ),
         child: Row(
@@ -301,7 +294,7 @@ class ConnectUs extends StatelessWidget {
   }
 
   /// ================= SOCIAL ITEM =================
-  Widget _social(IconData icon, String url, Color color) {
+  Widget _social(dynamic icon, String url, Color color) {
     return GestureDetector(
       onTap: () => _openUrl(url),
       child: Container(
@@ -310,13 +303,10 @@ class ConnectUs extends StatelessWidget {
           color: Colors.white,
           shape: BoxShape.circle,
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-            )
+            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 8),
           ],
         ),
-        child: Icon(icon, color: color, size: 28.sp),
+        child: FaIcon(icon, color: color, size: 28.sp),
       ),
     );
   }

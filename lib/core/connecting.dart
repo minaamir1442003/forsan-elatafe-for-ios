@@ -41,14 +41,14 @@ class Conectus extends StatelessWidget {
             // العنوان
             Center(
               child: Text(
-                    "تواصل معنا",
-                    style: TextStyle(
-                      fontSize: 22.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.5,
-                    ),
-                  ),
+                "تواصل معنا",
+                style: TextStyle(
+                  fontSize: 22.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                ),
+              ),
             ),
             SizedBox(height: 20),
 
@@ -146,7 +146,8 @@ class Conectus extends StatelessWidget {
               icon: Icons.public,
               title: "الموقع الإلكتروني",
               value: "www.resort-name.com",
-              onTap: () => _launchWebsite("https://recovery-knights.vercel.app/"),
+              onTap: () =>
+                  _launchWebsite("https://recovery-knights.vercel.app/"),
               isPhone: false,
             ),
 
@@ -255,11 +256,7 @@ class Conectus extends StatelessWidget {
               ),
             ],
           ),
-          child: Icon(
-            icon,
-            size: 24.sp,
-            color: Appcolors.accentColor,
-          ),
+          child: Icon(icon, size: 24.sp, color: Appcolors.accentColor),
         ),
       ],
     );
@@ -310,11 +307,7 @@ class Conectus extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Icon(
-                icon,
-                size: 22.sp,
-                color: Appcolors.bluecolor,
-              ),
+              child: Icon(icon, size: 22.sp, color: Appcolors.bluecolor),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -348,7 +341,7 @@ class Conectus extends StatelessWidget {
 
   // Widget لأيقونات السوشيال ميديا
   Widget _buildSocialIcon({
-    required IconData icon,
+    required dynamic icon,
     required String url,
     required Color color,
   }) {
@@ -380,11 +373,7 @@ class Conectus extends StatelessWidget {
             ),
           ],
         ),
-        child: Icon(
-          icon,
-          color: Appcolors.accentColor,
-          size: 20.sp,
-        ),
+        child: Icon(icon, color: Appcolors.accentColor, size: 20.sp),
       ),
     );
   }
@@ -396,10 +385,7 @@ class Conectus extends StatelessWidget {
 
   Future<void> _launchWebsite(String url) async {
     final Uri uri = Uri.parse(url);
-    if (!await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    )) {
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       debugPrint('Could not launch $url');
     }
   }
@@ -408,10 +394,7 @@ class Conectus extends StatelessWidget {
 Future<void> launchSocial(String url) async {
   final Uri uri = Uri.parse(url);
 
-  if (!await launchUrl(
-    uri,
-    mode: LaunchMode.externalApplication,
-  )) {
+  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
     throw Exception('Could not launch $url');
   }
 }
