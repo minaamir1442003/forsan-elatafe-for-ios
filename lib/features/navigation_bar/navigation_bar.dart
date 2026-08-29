@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/appcolors.dart';
 import 'package:forsan_eltafe/features/MedicalUnit/screen/MedicalUnitPage.dart';
 import 'package:forsan_eltafe/features/Profile/screen/ProfilePage.dart';
@@ -87,9 +88,17 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
     return GestureDetector(
       onTap: () {
+        if (_selectedIndex == index) return;
+
         setState(() {
           _selectedIndex = index;
         });
+
+        if (index == 1) {
+          AnalyticsService.logContentView(section: 'medical_unit');
+        } else if (index == 2) {
+          AnalyticsService.logContentView(section: 'resort');
+        }
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

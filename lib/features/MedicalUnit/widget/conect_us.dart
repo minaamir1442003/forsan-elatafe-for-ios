@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/appcolors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -313,10 +314,12 @@ class ConnectUs extends StatelessWidget {
 
   /// ================= FUNCTIONS =================
   void _call(String number) async {
+    await AnalyticsService.logContactClick(method: 'phone');
     await FlutterPhoneDirectCaller.callNumber(number);
   }
 
   void _whatsapp(String number) async {
+    await AnalyticsService.logContactClick(method: 'whatsapp');
     final url = Uri.parse("https://wa.me/2$number");
     await launchUrl(url, mode: LaunchMode.externalApplication);
   }

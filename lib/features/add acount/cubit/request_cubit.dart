@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/shared_preferences_helper.dart';
 import 'package:forsan_eltafe/features/add%20acount/services/request_service.dart';
 import '../models/request_model.dart';
@@ -33,7 +34,9 @@ class RequestCubit extends Cubit<RequestState> {
         await SharedPreferencesHelper.saveNationalId(request.nationalId);
         await SharedPreferencesHelper.setHasSubmittedRequest(true);
         savedNationalId = request.nationalId;
-        
+
+        await AnalyticsService.logSignUpRequest();
+
         emit(RequestCreatedSuccess(
           message: response['message'],
           requestId: response['data']['_id'],

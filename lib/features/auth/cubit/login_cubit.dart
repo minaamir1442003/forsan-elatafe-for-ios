@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/network/dio_helper.dart';
 import 'package:forsan_eltafe/features/Profile/models/login_response_model.dart';
 import 'package:forsan_eltafe/features/auth/cubit/login_state.dart';
@@ -25,6 +26,8 @@ class LoginCubit extends Cubit<LoginState> {
       final loginModel = LoginResponseModel.fromJson(response.data);
 
       if (loginModel.success && loginModel.token != null) {
+        await AnalyticsService.logLogin();
+
         emit(LoginSuccess(
           token: loginModel.token!,
           patientName: loginModel.name ?? 'مريض',

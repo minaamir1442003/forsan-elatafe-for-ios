@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "738414708293",
+    "project_id": "forsan-elatafe",
+    "storage_bucket": "forsan-elatafe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738414708293:android:6d4cd894b14452f553c52c",
+        "android_client_info": {
+          "package_name": "com.example.forsan_eltafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYg059xYCEx_C1wstYgwawAHGwWL2OmQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
