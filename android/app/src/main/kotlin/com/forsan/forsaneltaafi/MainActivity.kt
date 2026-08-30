@@ -1,4 +1,4 @@
-package com.example.forsan_eltafe
+package com.forsan.forsaneltaafi
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -37,7 +37,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBYg059xYCEx_C1wstYgwawAHGwWL2OmQw',
-    appId: '1:738414708293:android:6d4cd894b14452f553c52c',
+    appId: '1:738414708293:android:3938c9b5f805534053c52c',
     messagingSenderId: '738414708293',
     projectId: 'forsan-elatafe',
     storageBucket: 'forsan-elatafe.firebasestorage.app',
