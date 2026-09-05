@@ -58,6 +58,11 @@ class AnalyticsService {
   static void _initMeta() {
     try {
       _meta = FacebookAppEvents();
+      // Android has no ATT prompt; enable advertiser ID collection explicitly
+      // (iOS is handled by ATT in requestTrackingIfNeeded).
+      if (Platform.isAndroid) {
+        _meta!.setAdvertiserTracking(enabled: true, collectId: true);
+      }
       _metaReady = true;
       if (kDebugMode) {
         debugPrint('[AnalyticsService] Meta App Events initialized');
@@ -84,7 +89,7 @@ class AnalyticsService {
       }
 
       final granted = finalStatus == TrackingStatus.authorized;
-      await _meta?.setAdvertiserIdCollectionEnabled(granted);
+      await _meta?.setAdvertiserTracking(enabled: granted);
 
       if (kDebugMode) {
         debugPrint(
