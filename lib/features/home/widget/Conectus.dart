@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/appcolors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -302,6 +303,7 @@ class Conectus extends StatelessWidget {
   }
 
   Future<void> _openWhatsApp(String phone) async {
+    await AnalyticsService.logContactClick(method: 'whatsapp');
     final Uri uri = Uri.parse("https://wa.me/$phone");
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }

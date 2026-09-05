@@ -1,0 +1,27 @@
+Event Name,Platform,Trigger / Call Site,Type,Parameters,Notes
+sign_up_request_submitted,Firebase,lib/features/add acount/cubit/request_cubit.dart:38,Custom event,(none),Fired when sign-up request is submitted
+CompleteRegistration,Meta,lib/features/add acount/cubit/request_cubit.dart:38,Standard event,registration_method=request_form,Meta equivalent of the sign-up request
+login,Firebase,lib/features/auth/cubit/login_cubit.dart:29,Custom event,method=family_account,Family login succeeded
+login,Meta,lib/features/auth/cubit/login_cubit.dart:29,Custom event,method=family_account,Same event name as Firebase
+contact_click,Firebase,lib/features/home/widget/Conectus.dart:306,Custom event,method=whatsapp,Home contact button
+Contact,Meta,lib/features/home/widget/Conectus.dart:306,Standard event,method=whatsapp,Meta equivalent of contact_click
+contact_click,Firebase,lib/features/Resort/widget/conectustomontage.dart:318,Custom event,method=phone,Resort phone button
+Contact,Meta,lib/features/Resort/widget/conectustomontage.dart:318,Standard event,method=phone,
+contact_click,Firebase,lib/features/Resort/widget/conectustomontage.dart:323,Custom event,method=whatsapp,Resort WhatsApp button
+Contact,Meta,lib/features/Resort/widget/conectustomontage.dart:323,Standard event,method=whatsapp,
+contact_click,Firebase,lib/features/MedicalUnit/widget/conect_us.dart:317,Custom event,method=phone,Medical Unit phone button
+Contact,Meta,lib/features/MedicalUnit/widget/conect_us.dart:317,Standard event,method=phone,
+contact_click,Firebase,lib/features/MedicalUnit/widget/conect_us.dart:322,Custom event,method=whatsapp,Medical Unit WhatsApp button
+Contact,Meta,lib/features/MedicalUnit/widget/conect_us.dart:322,Standard event,method=whatsapp,
+content_view,Firebase,lib/features/navigation_bar/navigation_bar.dart:100,Custom event,section=resort,Resort tab opened
+fb_mobile_content_view (ViewedContent),Meta,lib/features/navigation_bar/navigation_bar.dart:100,Standard event,content_type=resort,Verified live on device 2026-09-05
+content_view,Firebase,lib/features/navigation_bar/navigation_bar.dart:98,Custom event,section=medical_unit,Medical Unit tab opened
+fb_mobile_content_view (ViewedContent),Meta,lib/features/navigation_bar/navigation_bar.dart:98,Standard event,content_type=medical_unit,Verified live on device 2026-09-05
+AdvertiserTrackingEnabled (no event),Meta,lib/features/splach/AnimatedSplashScreen.dart:62 + lib/features/Onboarding/screen/onboarding_screen.dart:71,SDK setting,enabled=true if user allows tracking,iOS only - no-op on Android; Android equivalent: setAdvertiserTracking(enabled:true collectId:true) at init
+first_open,Firebase,(automatic - SDK level),Auto-collected,n/a,First time a user opens the app
+app_open,Firebase,(automatic - SDK level),Auto-collected,n/a,Foreground session start
+screen_view,Firebase,(automatic - SDK level),Auto-collected,n/a,Screen/page transition
+session_start,Firebase,(automatic - SDK level),Auto-collected,n/a,New user session begins
+app install,Meta,(automatic - SDK level),Auto-collected,n/a,First launch after install (Meta mobile SDK)
+app launch,Meta,(automatic - SDK level),Auto-collected,n/a,App brought to foreground; also sends advertiser_id + extinfo with every batch
+session,Meta,(automatic - SDK level),Auto-collected,n/a,Session heartbeat/timeout event

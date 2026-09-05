@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/shared_preferences_helper.dart';
 import 'package:forsan_eltafe/features/navigation_bar/navigation_bar.dart';
 
@@ -65,6 +66,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 @override
 void initState() {
   super.initState();
+
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    AnalyticsService.requestTrackingIfNeeded();
+  });
 
   // تثبيت الاتجاه Portrait فقط
   SystemChrome.setPreferredOrientations([

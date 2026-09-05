@@ -70,5 +70,44 @@
 		<true/>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>NSUserTrackingUsageDescription</key>
+		<string>نستخدم معرّف الجهاز لتحسين الإعلانات وقياس فعاليتها.</string>
+		<key>FacebookAppID</key>
+		<string>2041027930137041</string>
+		<key>FacebookClientToken</key>
+		<string>befcff957317d68de1a3a3860194a4fa</string>
+		<key>FacebookDisplayName</key>
+		<string>فرسان التعافي</string>
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>fb2041027930137041</string>
+				</array>
+			</dict>
+		</array>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>fbapi</string>
+			<string>fb-messenger-share-api</string>
+			<string>whatsapp</string>
+			<string>tel</string>
+		</array>
+		<key>SKAdNetworkItems</key>
+		<array>
+			<dict>
+				<key>SKAdNetworkIdentifier</key>
+				<string>cstr6suwn9.skadnetwork</string>
+			</dict>
+			<dict>
+				<key>SKAdNetworkIdentifier</key>
+				<string>v9wttpbfk9.skadnetwork</string>
+			</dict>
+			<dict>
+				<key>SKAdNetworkIdentifier</key>
+				<string>n38lu8286q.skadnetwork</string>
+			</dict>
+		</array>
 	</dict>
 </plist>

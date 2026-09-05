@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PLACEHOLDER — replace with your Meta App ID and Client Token -->
+    <string name="facebook_app_id">2041027930137041</string>
+    <string name="facebook_client_token">befcff957317d68de1a3a3860194a4fa</string>
+    <string name="fb_login_protocol_scheme">fb2041027930137041</string>
+</resources>

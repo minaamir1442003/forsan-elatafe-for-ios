@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/appcolors.dart';
 import 'package:forsan_eltafe/features/navigation_bar/navigation_bar.dart';
 
@@ -56,6 +57,10 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
     );
     
     _controller.forward();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService.requestTrackingIfNeeded();
+    });
     
     _timer = Timer(const Duration(milliseconds: 3000), () {
       if (mounted) {

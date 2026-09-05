@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:forsan_eltafe/core/analytics_service.dart';
 import 'package:forsan_eltafe/core/network/dio_helper.dart';
 import 'package:forsan_eltafe/core/shared_preferences_helper.dart';
 import 'package:forsan_eltafe/features/Onboarding/screen/onboarding_screen.dart';
@@ -9,6 +10,7 @@ import 'package:forsan_eltafe/features/add%20acount/cubit/request_cubit.dart'; /
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AnalyticsService.init();
   DioHelper.init();
   await SharedPreferencesHelper.init();
   runApp(const MyApp());
